@@ -20,7 +20,7 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'Shougo/neoyank.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'gcorne/vim-sass-lint'
 Plug 'evidens/vim-twig'
 Plug 'joonty/vdebug'
