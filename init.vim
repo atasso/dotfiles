@@ -26,6 +26,9 @@ Plug 'evidens/vim-twig'
 Plug 'joonty/vdebug'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
+Plug 'mtscout6/vim-tagbar-css'
 call plug#end()
 filetype on
 
@@ -169,6 +172,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:ale_php_phpcs_standard  = 'Drupal'
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -220,6 +225,16 @@ let g:vdebug_keymap = {
 let g:vdebug_options = {
 \    "break_on_open" : 0,
 \}
+
+augroup module
+  autocmd BufRead,BufNewFile *.module set filetype=php
+  autocmd BufRead,BufNewFile *.install set filetype=php
+  autocmd BufRead,BufNewFile *.test set filetype=php
+  autocmd BufRead,BufNewFile *.theme set filetype=php
+  autocmd BufRead,BufNewFile *.inc set filetype=php
+  autocmd BufRead,BufNewFile *.profile set filetype=php
+  autocmd BufRead,BufNewFile *.view set filetype=php
+augroup END
 
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on
