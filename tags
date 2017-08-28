@@ -22,25 +22,11 @@
 ExpandSnippetOrReturn	init.vim	/^function! <SID>ExpandSnippetOrReturn()$/;"	f
 [denite]	init.vim	/^nnoremap [denite] <Nop>$/;"	m
 [denite]b	init.vim	/^nnoremap [denite]b :Denite buffer -mode=normal -highlight-matched-char=Normal<CR>$/;"	m
-<<<<<<< HEAD
-[denite]b	init.vim	/^nnoremap [denite]b :Denite buffer -mode=normal<CR>$/;"	m
-[denite]f	init.vim	/^nnoremap [denite]f :Denite file_rec -highlight-matched-char=Normal<CR>$/;"	m
-[denite]f	init.vim	/^nnoremap [denite]f :Denite file_rec<CR>$/;"	m
-[denite]l	init.vim	/^nnoremap [denite]l :Denite line -highlight-matched-char=Normal<CR>$/;"	m
-[denite]l	init.vim	/^nnoremap [denite]l :Denite line<CR>$/;"	m
-[denite]r	init.vim	/^nnoremap [denite]r :Denite -resume -highlight-matched-char=Normal<CR>$/;"	m
-[denite]r	init.vim	/^nnoremap [denite]r :Denite -resume <CR>$/;"	m
-[denite]s	init.vim	/^noremap [denite]s :Denite grep -highlight-matched-char=Normal<CR>$/;"	m
-[denite]s	init.vim	/^noremap [denite]s :Denite grep<CR>$/;"	m
-[denite]y	init.vim	/^nnoremap [denite]y :Denite history\/yank -highlight-matched-char=Normal<CR>$/;"	m
-[denite]y	init.vim	/^nnoremap [denite]y :Denite history\/yank <CR>$/;"	m
-=======
 [denite]f	init.vim	/^nnoremap [denite]f :Denite file_rec -highlight-matched-char=Normal<CR>$/;"	m
 [denite]l	init.vim	/^nnoremap [denite]l :Denite line -highlight-matched-char=Normal<CR>$/;"	m
 [denite]r	init.vim	/^nnoremap [denite]r :Denite -resume -highlight-matched-char=Normal<CR>$/;"	m
 [denite]s	init.vim	/^noremap [denite]s :Denite grep -highlight-matched-char=Normal<CR>$/;"	m
 [denite]y	init.vim	/^nnoremap [denite]y :Denite history\/yank -highlight-matched-char=Normal<CR>$/;"	m
->>>>>>> ea04f897fb67a3543ba46084a52f7bbfe367d05c
 g:UltiSnipsExpandTrigger	init.vim	/^let g:UltiSnipsExpandTrigger="<c-j>"$/;"	v
 g:UltiSnipsJumpBackwardTrigger	init.vim	/^let g:UltiSnipsJumpBackwardTrigger="<s-tab>"$/;"	v
 g:UltiSnipsJumpForwardTrigger	init.vim	/^let g:UltiSnipsJumpForwardTrigger="<c-j>"$/;"	v
