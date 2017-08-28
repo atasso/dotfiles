@@ -13,20 +13,20 @@
 <Leader>k	init.vim	/^nnoremap <Leader>k <C-u>$/;"	m
 <Leader>p	init.vim	/^nnoremap <silent> <Leader>p :set paste<cr>$/;"	m
 <Leader>s	init.vim	/^nnoremap <Leader>s :so $MYVIMRC <cr>$/;"	m
+<Leader>t	init.vim	/^nnoremap <Leader>t :TagbarToggle<CR>$/;"	m
 <Leader>tc	init.vim	/^nnoremap <Leader>tc :tabclose <cr>$/;"	m
 <Leader>tn	init.vim	/^nnoremap <Leader>tn :tabnew <cr>$/;"	m
-<Leader>z	init.vim	/^nnoremap <Leader>z :ZoomWin<CR>$/;"	m
 <S-tab>	init.vim	/^noremap <silent> <S-tab> :wincmd W<cr>$/;"	m
 <tab>	init.vim	/^inoremap <expr><tab> pumvisible() ? "\\<c-n>" : "\\<tab>"$/;"	m
 <tab>	init.vim	/^noremap <silent> <tab> :wincmd w<cr>$/;"	m
 ExpandSnippetOrReturn	init.vim	/^function! <SID>ExpandSnippetOrReturn()$/;"	f
 [denite]	init.vim	/^nnoremap [denite] <Nop>$/;"	m
-[denite]b	init.vim	/^nnoremap [denite]b :Denite buffer -mode=normal<CR>$/;"	m
-[denite]f	init.vim	/^nnoremap [denite]f :Denite file_rec<CR>$/;"	m
-[denite]l	init.vim	/^nnoremap [denite]l :Denite line<CR>$/;"	m
-[denite]r	init.vim	/^nnoremap [denite]r :Denite -resume <CR>$/;"	m
-[denite]s	init.vim	/^noremap [denite]s :Denite grep<CR>$/;"	m
-[denite]y	init.vim	/^nnoremap [denite]y :Denite history\/yank <CR>$/;"	m
+[denite]b	init.vim	/^nnoremap [denite]b :Denite buffer -mode=normal -highlight-matched-char=Normal<CR>$/;"	m
+[denite]f	init.vim	/^nnoremap [denite]f :Denite file_rec -highlight-matched-char=Normal<CR>$/;"	m
+[denite]l	init.vim	/^nnoremap [denite]l :Denite line -highlight-matched-char=Normal<CR>$/;"	m
+[denite]r	init.vim	/^nnoremap [denite]r :Denite -resume -highlight-matched-char=Normal<CR>$/;"	m
+[denite]s	init.vim	/^noremap [denite]s :Denite grep -highlight-matched-char=Normal<CR>$/;"	m
+[denite]y	init.vim	/^nnoremap [denite]y :Denite history\/yank -highlight-matched-char=Normal<CR>$/;"	m
 g:UltiSnipsExpandTrigger	init.vim	/^let g:UltiSnipsExpandTrigger="<c-j>"$/;"	v
 g:UltiSnipsJumpBackwardTrigger	init.vim	/^let g:UltiSnipsJumpBackwardTrigger="<s-tab>"$/;"	v
 g:UltiSnipsJumpForwardTrigger	init.vim	/^let g:UltiSnipsJumpForwardTrigger="<c-j>"$/;"	v

@@ -2,7 +2,7 @@
 set nocompatible
 
 
-" Required Vundle setup
+" Vim-plug setup
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'bling/vim-airline'
@@ -11,13 +11,10 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-vinegar'
-Plug 'vim-scripts/ZoomWin'
 Plug 'jiangmiao/auto-pairs'
 Plug 'altercation/vim-colors-solarized'
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'Shougo/neoyank.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
@@ -129,8 +126,7 @@ nnoremap <Leader>k <C-u>
 nnoremap è <C-o>
 nnoremap é <C-i>
 
-" ZoomWin configuration
-nnoremap <Leader>z :ZoomWin<CR>
+nnoremap <Leader>t :TagbarToggle<CR>
 
 "Mappo la riceca sulla virgola
 nnoremap , /
@@ -143,6 +139,7 @@ call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>', 'noremap')
 call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
 call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('normal', 'd', '<denite:do_action:delete>', 'noremap')
+<<<<<<< HEAD
 call denite#custom#var('grep', 'command', ['ag'])
 call denite#custom#var('grep', 'default_opts',
       \ ['-i', '--vimgrep'])
@@ -156,6 +153,14 @@ nnoremap [denite]b :Denite buffer -mode=normal<CR>
 nnoremap [denite]y :Denite history/yank <CR>
 nnoremap [denite]r :Denite -resume <CR>
 noremap [denite]s :Denite grep<CR>
+=======
+nnoremap [denite]f :Denite file_rec -highlight-matched-char=Normal<CR>
+nnoremap [denite]l :Denite line -highlight-matched-char=Normal<CR>
+nnoremap [denite]b :Denite buffer -mode=normal -highlight-matched-char=Normal<CR>
+nnoremap [denite]y :Denite history/yank -highlight-matched-char=Normal<CR>
+nnoremap [denite]r :Denite -resume -highlight-matched-char=Normal<CR>
+noremap [denite]s :Denite grep -highlight-matched-char=Normal<CR>
+>>>>>>> ea04f897fb67a3543ba46084a52f7bbfe367d05c
 
 
 let g:deoplete#enable_at_startup = 1
