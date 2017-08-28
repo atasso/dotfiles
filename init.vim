@@ -140,6 +140,7 @@ call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
 call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('normal', 'd', '<denite:do_action:delete>', 'noremap')
 <<<<<<< HEAD
+<<<<<<< HEAD
 call denite#custom#var('grep', 'command', ['ag'])
 call denite#custom#var('grep', 'default_opts',
       \ ['-i', '--vimgrep'])
@@ -154,12 +155,17 @@ nnoremap [denite]y :Denite history/yank <CR>
 nnoremap [denite]r :Denite -resume <CR>
 noremap [denite]s :Denite grep<CR>
 =======
+=======
+>>>>>>> ea04f897fb67a3543ba46084a52f7bbfe367d05c
 nnoremap [denite]f :Denite file_rec -highlight-matched-char=Normal<CR>
 nnoremap [denite]l :Denite line -highlight-matched-char=Normal<CR>
 nnoremap [denite]b :Denite buffer -mode=normal -highlight-matched-char=Normal<CR>
 nnoremap [denite]y :Denite history/yank -highlight-matched-char=Normal<CR>
 nnoremap [denite]r :Denite -resume -highlight-matched-char=Normal<CR>
 noremap [denite]s :Denite grep -highlight-matched-char=Normal<CR>
+<<<<<<< HEAD
+>>>>>>> ea04f897fb67a3543ba46084a52f7bbfe367d05c
+=======
 >>>>>>> ea04f897fb67a3543ba46084a52f7bbfe367d05c
 
 
