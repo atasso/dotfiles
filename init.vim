@@ -110,12 +110,12 @@ call vimfiler#custom#profile('default', 'context', {
       \ 'safe' : 0,
       \})
 augroup vfinit
-autocmd FileType vimfiler call s:vimfilerinit()
+  autocmd FileType vimfiler call s:vimfilerinit()
 augroup END
-  function! s:vimfilerinit()
-    set nonumber
-    set norelativenumber
-  endf
+function! s:vimfilerinit()
+  set nonumber
+  set norelativenumber
+endf
 
 nnoremap <Leader>f :VimFilerExplorer<cr>
 
@@ -143,6 +143,13 @@ call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>', 'noremap')
 call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
 call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('normal', 'd', '<denite:do_action:delete>', 'noremap')
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts',
+      \ ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
 nnoremap [denite]f :Denite file_rec<CR>
 nnoremap [denite]l :Denite line<CR>
 nnoremap [denite]b :Denite buffer -mode=normal<CR>

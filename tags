@@ -58,7 +58,7 @@ jj	init.vim	/^imap jj <Esc>$/;"	m
 mapleader	init.vim	/^let mapleader = "\\<Space>"$/;"	v
 module	init.vim	/^augroup module$/;"	a
 vfinit	init.vim	/^augroup vfinit$/;"	a
-vimfilerinit	init.vim	/^  function! s:vimfilerinit()$/;"	f
+vimfilerinit	init.vim	/^function! s:vimfilerinit()$/;"	f
 à	init.vim	/^nnoremap à ;$/;"	m
 è	init.vim	/^nnoremap è <C-o>$/;"	m
 é	init.vim	/^nnoremap é <C-i>$/;"	m
