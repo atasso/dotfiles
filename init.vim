@@ -139,6 +139,13 @@ call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>', 'noremap')
 call denite#custom#map('normal', 'v', '<denite:do_action:vsplit>', 'noremap')
 call denite#custom#map('normal', 's', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('normal', 'd', '<denite:do_action:delete>', 'noremap')
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts',
+      \ ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
 nnoremap [denite]f :Denite file_rec -highlight-matched-char=Normal<CR>
 nnoremap [denite]l :Denite line -highlight-matched-char=Normal<CR>
 nnoremap [denite]b :Denite buffer -mode=normal -highlight-matched-char=Normal<CR>
