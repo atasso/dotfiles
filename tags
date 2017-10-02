@@ -34,6 +34,7 @@ g:airline#extensions#tabline#enabled	init.vim	/^let g:airline#extensions#tabline
 g:airline_inactive_collapse	init.vim	/^let g:airline_inactive_collapse=1$/;"	v
 g:airline_powerline_fonts	init.vim	/^let g:airline_powerline_fonts = 1$/;"	v
 g:ale_php_phpcs_standard	init.vim	/^let g:ale_php_phpcs_standard  = 'Drupal'$/;"	v
+g:ale_php_phpcs_use_global	init.vim	/^let g:ale_php_phpcs_use_global = 1$/;"	v
 g:deoplete#enable_at_startup	init.vim	/^let g:deoplete#enable_at_startup = 1$/;"	v
 g:mapleader	init.vim	/^let g:mapleader = "\\<Space>"$/;"	v
 g:solarized_termtrans	init.vim	/^let g:solarized_termtrans = 1$/;"	v
