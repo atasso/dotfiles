@@ -26,6 +26,7 @@ Plug 'Shougo/vimfiler.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'mtscout6/vim-tagbar-css'
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 call plug#end()
 filetype on
 
@@ -155,6 +156,8 @@ noremap [denite]s :Denite grep -highlight-matched-char=Normal<CR>
 
 
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
+let g:deoplete#ignore_sources.php = ['omni']
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -238,6 +241,11 @@ augroup module
   autocmd BufRead,BufNewFile *.inc set filetype=php
   autocmd BufRead,BufNewFile *.profile set filetype=php
   autocmd BufRead,BufNewFile *.view set filetype=php
+augroup END
+
+augroup chiudiscratch
+  autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+  autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 augroup END
 
 " load the plugin and indent settings for the detected filetype

@@ -27,6 +27,7 @@ ExpandSnippetOrReturn	init.vim	/^function! <SID>ExpandSnippetOrReturn()$/;"	f
 [denite]r	init.vim	/^nnoremap [denite]r :Denite -resume -highlight-matched-char=Normal<CR>$/;"	m
 [denite]s	init.vim	/^noremap [denite]s :Denite grep -highlight-matched-char=Normal<CR>$/;"	m
 [denite]y	init.vim	/^nnoremap [denite]y :Denite history\/yank -highlight-matched-char=Normal<CR>$/;"	m
+chiudiscratch	init.vim	/^augroup chiudiscratch$/;"	a
 g:UltiSnipsExpandTrigger	init.vim	/^let g:UltiSnipsExpandTrigger="<c-j>"$/;"	v
 g:UltiSnipsJumpBackwardTrigger	init.vim	/^let g:UltiSnipsJumpBackwardTrigger="<s-tab>"$/;"	v
 g:UltiSnipsJumpForwardTrigger	init.vim	/^let g:UltiSnipsJumpForwardTrigger="<c-j>"$/;"	v
@@ -36,6 +37,8 @@ g:airline_powerline_fonts	init.vim	/^let g:airline_powerline_fonts = 1$/;"	v
 g:ale_php_phpcs_standard	init.vim	/^let g:ale_php_phpcs_standard  = 'Drupal'$/;"	v
 g:ale_php_phpcs_use_global	init.vim	/^let g:ale_php_phpcs_use_global = 1$/;"	v
 g:deoplete#enable_at_startup	init.vim	/^let g:deoplete#enable_at_startup = 1$/;"	v
+g:deoplete#ignore_sources	init.vim	/^let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})$/;"	v
+g:deoplete#ignore_sources	init.vim	/^let g:deoplete#ignore_sources.php = ['omni']$/;"	v
 g:mapleader	init.vim	/^let g:mapleader = "\\<Space>"$/;"	v
 g:solarized_termtrans	init.vim	/^let g:solarized_termtrans = 1$/;"	v
 g:syntastic_always_populate_loc_list	init.vim	/^let g:syntastic_always_populate_loc_list = 1$/;"	v
