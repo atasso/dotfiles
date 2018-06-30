@@ -20,6 +20,7 @@ Plug 'SirVer/ultisnips'
 Plug 'w0rp/ale'
 Plug 'gcorne/vim-sass-lint'
 Plug 'evidens/vim-twig'
+Plug 'jwalton512/vim-blade'
 Plug 'joonty/vdebug'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
@@ -27,6 +28,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'mtscout6/vim-tagbar-css'
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+Plug 'posva/vim-vue'
 call plug#end()
 filetype on
 
@@ -173,13 +175,12 @@ function! <SID>ExpandSnippetOrReturn()
 endfunction
 inoremap <expr> <CR> pumvisible() ? "<C-R>=<SID>ExpandSnippetOrReturn()<CR>" : "\<CR>"
 
-" impostazioni per syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:ale_php_phpcs_standard  = 'Drupal'
-let g:ale_php_phpcs_use_global = 1
+" let g:ale_php_phpcs_standard  = ''
+" let g:ale_php_phpcs_use_global = 1
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'php': ['php'],
+\}
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
