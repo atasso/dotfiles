@@ -4,6 +4,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'Shougo/neosnippet.vim'
   Plug 'kaicataldo/material.vim'
   Plug 'itchyny/lightline.vim'
+  Plug 'nelsyeung/twig.vim'
   Plug 'tpope/vim-fugitive'
   Plug 'scrooloose/nerdtree'
   Plug 'pangloss/vim-javascript'
@@ -150,6 +151,10 @@ nnoremap <Leader>j <C-d>
 nnoremap <Leader>k <C-u>
 nnoremap è <C-o>
 nnoremap é <C-i>
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeAutoDeleteBuffer = 1
 nnoremap <Leader>f :NERDTreeToggle .<cr>
 
 "Mappo la riceca sulla virgola
