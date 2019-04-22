@@ -28,7 +28,6 @@ set clipboard+=unnamedplus
 "Impostazioni per il tema
 set background=dark
 colorscheme material
-set guifont=FuraCode\ NF
 let g:material_terminal_italics = 1
 if (has("termguicolors"))
   set termguicolors
