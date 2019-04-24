@@ -50,17 +50,16 @@ let g:lightline = {
 
 
 "Impostazioni per denite
-let s:denite_options = {'default' : {
+call denite#custom#option('default', {
       \ 'auto_resize': 1,
       \ 'prompt': 'λ:',
-      \ 'direction': 'rightbelow',
       \ 'winminheight': '2',
-      \ 'highlight_mode_insert': 'Visual',
-      \ 'highlight_mode_normal': 'Visual',
+      \ 'highlight_mode_insert': 'Conceal',
+      \ 'highlight_mode_normal': 'Wildmenu',
       \ 'prompt_highlight': 'Function',
       \ 'highlight_matched_char': 'Function',
       \ 'highlight_matched_range': 'Normal'
-      \ }}
+      \ })
 nnoremap [denite] <Nop>
 nmap ò [denite]
 call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>', 'noremap')
@@ -83,12 +82,12 @@ call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
-nnoremap [denite]f :Denite file/rec -split=floating -winrow=0<CR>
-nnoremap [denite]l :Denite line -split=floating -winrow=1<CR>
+nnoremap [denite]f :Denite file/rec  -split=floating -winrow=0<CR>
+nnoremap [denite]l :Denite line -split=floating -winrow=0<CR>
 nnoremap [denite]b :Denite buffer -split=floating -mode=normal -winrow=0<CR>
 nnoremap [denite]y :Denite neoyank -split=floating -winrow=0<CR>
 nnoremap [denite]r :Denite -resume -split=floating -winrow=0<CR>
-noremap [denite]s :Denite grep -no-empty -mode=Normal<CR>
+noremap [denite]s :Denite grep -highlight-matched-char=Normal -mode=normal<CR>
 
 
 
@@ -231,6 +230,10 @@ let g:vdebug_keymap = {
 let g:vdebug_options = {
 \    "break_on_open" : 0,
 \}
+
+  if has('nvim-0.3.1')
+    set fillchars+=eob:\              " suppress ~ at EndOfBuffer
+  endif
 
 let g:loaded_netrwPlugin = 1 " Disable netrw.vim
 
