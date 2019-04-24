@@ -1,4 +1,9 @@
 # User configuration
+source /usr/local/share/antigen/antigen.zsh
+antigen bundle agkozak/zsh-z
+
+# Tell Antigen that you're done.
+antigen apply
 
 setopt autocd cdable_vars
 HISTFILE=~/.zsh_history
@@ -27,7 +32,8 @@ bindkey '^[[B' history-substring-search-down
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
- alias la='ls -lAFh'   #long list,show almost all,show type,human readable
+ alias la='ls -lAFhG'   #long list,show almost all,show type,human readable
+ alias ls='ls -G'
  alias l='ls -1'
  alias python=python3
 
