@@ -104,39 +104,12 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr "%F{green}●%f" # default 'S'
 zstyle ':vcs_info:*' unstagedstr "%F{red}●%f" # default 'U'
 zstyle ':vcs_info:git+set-message:*' hooks git-untracked
-zstyle ':vcs_info:git*+post-backend:*' hooks git-arrows
-zstyle ':vcs_info:*:clean:*' check-head true
-zstyle ':vcs_info:*:clean:*' headbehindstr '⇣'
-zstyle ':vcs_info:*:clean:*' headaheadstr '⇡'
 zstyle ':vcs_info:*' formats "%b [%c%u%m]"
 function +vi-git-untracked() {
   emulate -L zsh
   if [[ -n $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
     hook_com[unstaged]+="%F{blue}●%f"
   fi
-}
-+vi-git-arrows() {
-        local arrows=$($vcs rev-list --left-right --count HEAD...@'{u}' 2> /dev/null)
-        local rev=("${(@z)arrows}")
-        local left=$rev[1] right=$rev[2]
-
-        local behind_arrow ahead_arrow
-        zstyle -s ":vcs_info:${vcs}:clean:arrows" headbehindstr behind_arrow
-        zstyle -s ":vcs_info:${vcs}:clean:arrows" headaheadstr ahead_arrow
-
-        unset arrows
-        if (( right > 0 ))
-        then
-            (( right > 1 )) && arrows+=$right
-            arrows+=$behind_arrow
-        fi
-        if (( left > 0 ))
-        then
-            (( left > 1 )) && arrows+=$left
-            arrows+=$ahead_arrow
-        fi
-
-        hook_com[action]+=$arrows
 }
 
 precmd() {
