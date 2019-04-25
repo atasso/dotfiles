@@ -101,15 +101,15 @@ zstyle ':vcs_info:*' use-simple true
 zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr "%F{green}●%f" # default 'S'
-zstyle ':vcs_info:*' unstagedstr "%F{red}●%f" # default 'U'
+zstyle ':vcs_info:*' unstagedstr "%F{yellow}●%f" # default 'U'
 zstyle ':vcs_info:git+post-backend:*' hooks git-arrows
 zstyle ':vcs_info:git+set-message:*' hooks git-untracked
-zstyle ':vcs_info:*' formats "[%b%c%u%m] "
-zstyle ':vcs_info:*' actionformats "[%b%c%u%m] %a "
+zstyle ':vcs_info:*' formats "%F{magenta}%b%f%m%c%u "
+zstyle ':vcs_info:*' actionformats "%F{magenta}%f%b%m%c%u %a "
 function +vi-git-untracked() {
   emulate -L zsh
   if [[ -n $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
-    hook_com[unstaged]+="%F{blue}●%f"
+    hook_com[unstaged]+="%F{red}●%f"
   fi
 }
 
@@ -128,14 +128,28 @@ unset arrows
         fi
 
         hook_com[action]+=$arrows
+        if [[ -n $(git status -s) ]]
+        then
+          hook_com[misc]+=' '
+        fi
 
 }
 precmd() {
     vcs_info
   }
+autoload -Uz add-zsh-hook
+prompt_pwd() {
+    if [[ $PWD = $HOME ]]; then
+        psvar[1]=''
+      else
+        psvar[1]=$(basename $PWD)
+    fi
+  }
+add-zsh-hook precmd prompt_pwd
+
 setopt prompt_subst
-PROMPT='%F{cyan}%c%f ${vcs_info_msg_0_}%F{green}❯%f '
-RPROMPT='%~'
+PROMPT='%F{cyan}%v%f ${vcs_info_msg_0_}%(?..%F{yellow}! %f)%F{cyan}❯%f '
+RPROMPT='%~ %F{yellow}[%T]%f'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export PATH="$PATH:$HOME/.rvm/bin:/usr/local/opt/gettext/bin:$PATH"
