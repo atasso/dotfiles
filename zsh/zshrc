@@ -98,13 +98,14 @@ autoload -U promptinit; promptinit
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' use-simple true
-zstyle ':vcs_info:*' actionformats "%b" "%c%u" "%a"
 zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr "%F{green}●%f" # default 'S'
 zstyle ':vcs_info:*' unstagedstr "%F{red}●%f" # default 'U'
+zstyle ':vcs_info:git+post-backend:*' hooks git-arrows
 zstyle ':vcs_info:git+set-message:*' hooks git-untracked
-zstyle ':vcs_info:*' formats "%b [%c%u%m]"
+zstyle ':vcs_info:*' formats "[%b%c%u%m] "
+zstyle ':vcs_info:*' actionformats "[%b%c%u%m] %a "
 function +vi-git-untracked() {
   emulate -L zsh
   if [[ -n $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
@@ -112,11 +113,29 @@ function +vi-git-untracked() {
   fi
 }
 
+function +vi-git-arrows() {
+local arrows=$($vcs rev-list --left-right --count HEAD...@'{u}' 2> /dev/null)
+        local rev=("${(@z)arrows}")
+        local left=$rev[1] right=$rev[2]
+unset arrows
+        if (( right > 0 ))
+        then
+            arrows+='%F{yellow}⇣%f'
+        fi
+        if (( left > 0 ))
+        then
+            arrows+='%F{green}⇡%f'
+        fi
+
+        hook_com[action]+=$arrows
+
+}
 precmd() {
     vcs_info
   }
 setopt prompt_subst
-PROMPT='%F{cyan}%~%f ${vcs_info_msg_0_}%F{green} ❯%f '
+PROMPT='%F{cyan}%c%f ${vcs_info_msg_0_}%F{green}❯%f '
+RPROMPT='%~'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export PATH="$PATH:$HOME/.rvm/bin:/usr/local/opt/gettext/bin:$PATH"
