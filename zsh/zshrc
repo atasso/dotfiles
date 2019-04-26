@@ -96,7 +96,10 @@ compinit
 
 
 # Completion for kitty
+if (( $+commands[ls] ))
+then
 kitty + complete setup zsh | source /dev/stdin
+fi
 
 autoload -U colors
 colors
