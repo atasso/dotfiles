@@ -177,6 +177,7 @@ prompt_chpwd() {
     ((
         git rev-parse --is-inside-work-tree &> /dev/null &&
             git fetch &> /dev/null &&
+  PROMPT='%F{blu}${SSH_TTY:+%n@%m}%B${SSH_TTY:+ }%f%F{cyan}%v%f${vcs_info_msg_0_}%(?..%F{yellow}! %f)%(1j.%F{green}%j${suspended_prompt} %F.)%F{cyan}${vim_mode}%f '
     ) &)
   }
 add-zsh-hook chpwd prompt_chpwd
