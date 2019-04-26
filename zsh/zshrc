@@ -96,7 +96,7 @@ compinit
 
 
 # Completion for kitty
-if (( $+commands[ls] ))
+if (( $+commands[kitty] ))
 then
 kitty + complete setup zsh | source /dev/stdin
 fi
