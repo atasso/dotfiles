@@ -6,10 +6,33 @@ antigen bundle agkozak/zsh-z
 antigen apply
 
 setopt autocd cdable_vars
+setopt prompt_subst
+setopt AUTO_PARAM_SLASH        # tab completing directory appends a slash
+setopt AUTO_PUSHD              # [default] cd automatically pushes old dir onto dir stack
+setopt AUTO_RESUME             # allow simple commands to resume backgrounded jobs
+setopt CLOBBER                 # allow clobbering with >, no need to use >!
+setopt CORRECT                 # [default] command auto-correction
+setopt CORRECT_ALL             # [default] argument auto-correction
+setopt NO_FLOW_CONTROL         # disable start (C-s) and stop (C-q) characters
+setopt NO_HIST_IGNORE_ALL_DUPS # don't filter duplicates from history
+setopt NO_HIST_IGNORE_DUPS     # don't filter contiguous duplicates from history
+setopt HIST_FIND_NO_DUPS       # don't show dupes when searching
+setopt HIST_IGNORE_SPACE       # [default] don't record commands starting with a space
+setopt HIST_VERIFY             # confirm history expansion (!$, !!, !foo)
+setopt IGNORE_EOF              # [default] prevent accidental C-d from exiting shell
+setopt INTERACTIVE_COMMENTS    # [default] allow comments, even in interactive shells
+setopt LIST_PACKED             # make completion lists more densely packed
+setopt MENU_COMPLETE           # auto-insert first possible ambiguous completion
+setopt NO_NOMATCH              # [default] unmatched patterns are left unchanged
+setopt PRINT_EXIT_VALUE        # [default] for non-zero exit status
+setopt PUSHD_IGNORE_DUPS       # don't push multiple copies of same dir onto stack
+setopt PUSHD_SILENT            # [default] don't print dir stack after pushing/popping
+setopt SHARE_HISTORY           # share history across shells
+
+
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-setopt SHARE_HISTORY
 
 hash -d si=~/Siti/
 hash -d mo=~/Documents/lavoro/monema/
@@ -23,6 +46,7 @@ hash -d mo=~/Documents/lavoro/monema/
  else
    export EDITOR='nvim'
  fi
+
 bindkey -v
 bindkey -s jj '\e'
 bindkey '^[[A' history-substring-search-up
@@ -70,12 +94,12 @@ add-zsh-hook preexec set-title-preexec
 autoload -Uz compinit
 compinit
 
+
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
 
 autoload -U colors
 colors
-
 
 
 # Highlight the current autocomplete option
@@ -84,13 +108,13 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # Better SSH/Rsync/SCP Autocomplete
 [ -r ~/.ssh/config ] && _ssh_config=($(cat ~/.ssh/config | sed -ne 's/Host[=\t ]//p')) || _ssh_config=()
 zstyle ':completion:*:(ssh|scp|rsync):*' hosts $_ssh_config
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' users ''
+zstyle ':completion:*:(ssh|scp|rsync|cd):*' group-name ''
+zstyle ':completion:*:(ssh|scp|rsync|cd):*' users ''
 
 # Allow for autocomplete to be case insensitive
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' \
   '+l:|?=** r:|?=**'
-
+zstyle ':completion:*' menu select
 
 
 autoload -U promptinit; promptinit
@@ -147,7 +171,6 @@ prompt_pwd() {
   }
 add-zsh-hook precmd prompt_pwd
 
-setopt prompt_subst
 vim_cmd_mode='❮'
 vim_ins_mode='❯'
 vim_mode=$vim_ins_mode
@@ -157,8 +180,9 @@ function zle-line-init zle-keymap-select {
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
+  suspended_prompt='⏻'
 
-PROMPT='%F{cyan}%v%f${vcs_info_msg_0_}%(?..%F{yellow}! %f)%F{cyan}${vim_mode}%f '
+  PROMPT='%F{cyan}%v%f${vcs_info_msg_0_}%(?..%F{yellow}! %f)%(1j.%F{green}%j${suspended_prompt} %F.)%F{cyan}${vim_mode}%f '
 RPROMPT='%~ %F{yellow}[%T]%f'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
