@@ -142,13 +142,23 @@ prompt_pwd() {
     if [[ $PWD = $HOME ]]; then
         psvar[1]=''
       else
-        psvar[1]=$(basename $PWD)
+        psvar[1]=$(basename $PWD)' '
     fi
   }
 add-zsh-hook precmd prompt_pwd
 
 setopt prompt_subst
-PROMPT='%F{cyan}%v%f ${vcs_info_msg_0_}%(?..%F{yellow}! %f)%F{cyan}❯%f '
+vim_cmd_mode='❮'
+vim_ins_mode='❯'
+vim_mode=$vim_ins_mode
+function zle-line-init zle-keymap-select {
+   vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
+   zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+PROMPT='%F{cyan}%v%f${vcs_info_msg_0_}%(?..%F{yellow}! %f)%F{cyan}${vim_mode}%f '
 RPROMPT='%~ %F{yellow}[%T]%f'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
