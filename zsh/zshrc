@@ -173,6 +173,13 @@ prompt_pwd() {
     fi
   }
 add-zsh-hook precmd prompt_pwd
+prompt_chpwd() {
+    ((
+        git rev-parse --is-inside-work-tree &> /dev/null &&
+            git fetch &> /dev/null &&
+    ) &)
+  }
+add-zsh-hook chpwd prompt_chpwd
 
 vim_cmd_mode='❮'
 vim_ins_mode='❯'
