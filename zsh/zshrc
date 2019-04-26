@@ -132,7 +132,7 @@ zstyle ':vcs_info:*' unstagedstr "%F{yellow}●%f" # default 'U'
 zstyle ':vcs_info:git+post-backend:*' hooks git-arrows
 zstyle ':vcs_info:git+set-message:*' hooks git-untracked
 zstyle ':vcs_info:*' formats "%F{magenta}%b%f%m%c%u "
-zstyle ':vcs_info:*' actionformats "%F{magenta}%f%b%m%c%u %a "
+zstyle ':vcs_info:*' actionformats "%F{magenta}%b%f%m%c%u %a "
 function +vi-git-untracked() {
   emulate -L zsh
   if [[ -n $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
@@ -185,7 +185,7 @@ zle -N zle-line-init
 zle -N zle-keymap-select
   suspended_prompt='⏻'
 
-  PROMPT='${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%F{cyan}%v%f${vcs_info_msg_0_}%(?..%F{yellow}! %f)%(1j.%F{green}%j${suspended_prompt} %F.)%F{cyan}${vim_mode}%f '
+  PROMPT='%F{cyan}${SSH_TTY:+%n@%m}%B${SSH_TTY:+ }%v%f${vcs_info_msg_0_}%(?..%F{yellow}! %f)%(1j.%F{green}%j${suspended_prompt} %F.)%F{cyan}${vim_mode}%f '
 RPROMPT='%~ %F{yellow}[%T]%f'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
