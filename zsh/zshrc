@@ -1,10 +1,12 @@
 # User configuration
-source /usr/local/share/antigen/antigen.zsh
+source .antigen/antigen.zsh
+# if not antigen git clone https://github.com/zsh-users/antigen.git .antigen
 antigen bundle agkozak/zsh-z
-
+antigen bundle zsh-users/zsh-history-substring-search
 # Tell Antigen that you're done.
 antigen apply
 
+zmodload zsh/zprof
 setopt autocd cdable_vars
 setopt prompt_subst
 setopt AUTO_PARAM_SLASH        # tab completing directory appends a slash
@@ -199,4 +201,3 @@ export PATH="$PATH:$HOME/.rvm/bin:/usr/local/opt/gettext/bin:$PATH"
 export PATH="/usr/local/git/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.config/composer/vendor/bin:/Users/andrea//Library/Python/2.7/bin"
 export PATH="/usr/local/opt/php@7.1/bin:$PATH"
 export PATH="/Applications/calibre.app/Contents/MacOS/:$PATH"
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
