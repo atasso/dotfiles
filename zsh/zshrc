@@ -1,12 +1,11 @@
 # User configuration
-source .antigen/antigen.zsh
+source /Users/andrea/.antigen/antigen.zsh
 # if not antigen git clone https://github.com/zsh-users/antigen.git .antigen
 antigen bundle agkozak/zsh-z
 antigen bundle zsh-users/zsh-history-substring-search
 # Tell Antigen that you're done.
 antigen apply
 
-zmodload zsh/zprof
 setopt autocd cdable_vars
 setopt prompt_subst
 setopt AUTO_PARAM_SLASH        # tab completing directory appends a slash
@@ -16,20 +15,23 @@ setopt CLOBBER                 # allow clobbering with >, no need to use >!
 setopt CORRECT                 # [default] command auto-correction
 setopt CORRECT_ALL             # [default] argument auto-correction
 setopt NO_FLOW_CONTROL         # disable start (C-s) and stop (C-q) characters
-setopt NO_HIST_IGNORE_ALL_DUPS # don't filter duplicates from history
-setopt NO_HIST_IGNORE_DUPS     # don't filter contiguous duplicates from history
-setopt HIST_FIND_NO_DUPS       # don't show dupes when searching
 setopt HIST_IGNORE_SPACE       # [default] don't record commands starting with a space
 setopt HIST_VERIFY             # confirm history expansion (!$, !!, !foo)
 setopt IGNORE_EOF              # [default] prevent accidental C-d from exiting shell
 setopt INTERACTIVE_COMMENTS    # [default] allow comments, even in interactive shells
 setopt LIST_PACKED             # make completion lists more densely packed
-setopt MENU_COMPLETE           # auto-insert first possible ambiguous completion
 setopt NO_NOMATCH              # [default] unmatched patterns are left unchanged
 setopt PRINT_EXIT_VALUE        # [default] for non-zero exit status
 setopt PUSHD_IGNORE_DUPS       # don't push multiple copies of same dir onto stack
 setopt PUSHD_SILENT            # [default] don't print dir stack after pushing/popping
 setopt SHARE_HISTORY           # share history across shells
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_BEEP
 
 
 HISTFILE=~/.zsh_history
@@ -37,10 +39,11 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 hash -d si=~/Siti/
-hash -d mo=~/Documents/lavoro/monema/
+hash -d mo=~/monema/
 
 # You may need to manually set your language environment
  export LANG=it_IT.UTF-8
+ export XDEBUG_CONFIG="idekey=VSCODE"
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
@@ -61,10 +64,11 @@ bindkey '^[[B' history-substring-search-down
  alias la='ls -lAFhG'   #long list,show almost all,show type,human readable
  alias ls='ls -G'
  alias l='ls -1'
+ alias lh='ls -lh'
  alias python=python3
 
 
-lazynvm() {
+function lazynvm() {
   unset -f nvm node npm
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -100,7 +104,6 @@ compinit
 # Completion for kitty
 if (( $+commands[kitty] ))
 then
-kitty + complete setup zsh | source /dev/stdin
 fi
 
 autoload -U colors
@@ -175,12 +178,12 @@ prompt_pwd() {
     fi
   }
 add-zsh-hook precmd prompt_pwd
-prompt_chpwd() {
-  git rev-parse --is-inside-work-tree &> /dev/null &&
-    git fetch &> /dev/null &&
-    zle && zle reset-prompt
-  }
-add-zsh-hook chpwd prompt_chpwd
+#prompt_chpwd() {
+#  git rev-parse --is-inside-work-tree &> /dev/null &&
+#    git fetch &> /dev/null &&
+#    zle && zle reset-prompt
+#  }
+#add-zsh-hook chpwd prompt_chpwd
 
 vim_cmd_mode='❮'
 vim_ins_mode='❯'
@@ -199,5 +202,13 @@ RPROMPT='%~ %F{yellow}[%T]%f'
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export PATH="$PATH:$HOME/.rvm/bin:/usr/local/opt/gettext/bin:$PATH"
 export PATH="/usr/local/git/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.config/composer/vendor/bin:/Users/andrea//Library/Python/2.7/bin"
+export PATH="/Users/andrea/.composer/vendor/bin/:$PATH"
 export PATH="/usr/local/opt/php@7.1/bin:$PATH"
 export PATH="/Applications/calibre.app/Contents/MacOS/:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=/usr/local/php5/bin:$PATH
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"

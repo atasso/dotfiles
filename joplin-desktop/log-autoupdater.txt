@@ -1,0 +1,6 @@
+2020-02-08 12:50:50: "checkForUpdates: Initializing..."
+2020-02-08 12:50:50: "checkForUpdates: Checking with options {"includePreReleases":false}"
+2020-02-08 12:50:51: "Current version: 1.0.179"
+2020-02-08 12:50:51: "Latest version: 1.0.179"
+2020-02-08 12:50:51: "Is Pre-release:", "false"
+2020-02-08 12:50:51: "checkForUpdates: Done."

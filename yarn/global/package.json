@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "create-react-app": "^3.3.0",
+    "serve": "^11.3.2"
+  }
+}

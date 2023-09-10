@@ -1,0 +1,8 @@
+color = ""
+
+[default]
+  device_name = "mbp4.local"
+  live_mode_api_key = "rk_live_Gm9ifo0kmdvsFGKxd8dKqPdl00JTKXclLa"
+  live_mode_publishable_key = "pk_live_G1vzXbAqjX1h4EE7hBYOTVfh00oVJDhZqH"
+  test_mode_api_key = "rk_test_LROYLANtt0z30zkWiicmOVhB0037f2QIiN"
+  test_mode_publishable_key = "pk_test_seqxVi8fThh4Jb86nVSILmMp00BhSDXpvB"
