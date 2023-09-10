@@ -8,6 +8,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz", {desc='Move cursor up'})
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {desc='Esc insert mode in terminal'})
 vim.keymap.set("n", "<leader>tv", ":vsplit<bar>vertical resize 80 <bar> term<cr>", {desc= 'Open terminal in vertical split'})
 vim.keymap.set("n", "<leader>to", ":split<bar>resize 20 <bar> term<cr>", {desc= 'Open terminal in vertical split'})
+vim.keymap.set("n", "gp", ":silent %!prettier --stdin-filepath %<CR>")
+vim.keymap.set("n", "<leader>ru", "<cmd>:TSToolsRemoveUnused<CR>", {  desc = "Remove unused" })
+vim.keymap.set("n", "<leader>ai", "<cmd>:TSToolsAddMissingImports<CR>", {  desc = "Add missing import" })
+vim.keymap.set("n", "<leader>oi", "<cmd>:TSToolsOrganizeImports<CR>", {  desc = "Organize imports" })
 
 
 

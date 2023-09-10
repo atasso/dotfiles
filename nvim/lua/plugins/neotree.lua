@@ -9,7 +9,10 @@ return {
     },
     opts = {
       filesystem = {
-        hijack_netrw_behavior = "open_current"
+        hijack_netrw_behavior = "open_current",
+        follow_current_file = {
+          enabled = true
+      }
       }
     },
     keys = {
