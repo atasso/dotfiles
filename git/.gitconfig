@@ -1,0 +1,2 @@
+[alias]
+	ls = log --pretty=format:\"%h %Cblue%ad%Creset %an %Cgreen%s%Creset\" --date=short --graph
