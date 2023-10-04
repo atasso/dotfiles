@@ -12,6 +12,7 @@ vim.keymap.set("n", "gp", ":silent %!prettier --stdin-filepath %<CR>")
 vim.keymap.set("n", "<leader>ru", "<cmd>:TSToolsRemoveUnused<CR>", {  desc = "Remove unused" })
 vim.keymap.set("n", "<leader>ai", "<cmd>:TSToolsAddMissingImports<CR>", {  desc = "Add missing import" })
 vim.keymap.set("n", "<leader>oi", "<cmd>:TSToolsOrganizeImports<CR>", {  desc = "Organize imports" })
+vim.keymap.set("", "ì", "`", { desc = "Remapped backtick"})
 
 
 
