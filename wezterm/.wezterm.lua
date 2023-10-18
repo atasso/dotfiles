@@ -18,7 +18,8 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = 'OneDark (base16)'
+config.color_scheme_dirs = { '../tokyonight/wezterm' }
+config.color_scheme = 'tokyonight_moon'
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
     config.default_prog = powershell
     config.font_size = 9

@@ -7,6 +7,7 @@ return {
     { '<leader>fg', function() require  'telescope.builtin'.live_grep() end, desc="Find in file"},
     { '<leader>fb', function() require  'telescope.builtin'.buffers({initial_mode='normal'}) end, desc="List buffers"},
     { '<leader>fr', function() require 'telescope.builtin'.lsp_references() end, desc="List refernces"},
+    { '<leader>fs', function() require 'telescope.builtin'.lsp_document_symbols() end, desc="List document symbols"},
     { 'gr', function() require 'telescope.builtin'.lsp_references({initial_mode='normal'}) end, desc="List refernces"},
     { '<leader>ff', function() require 'telescope.builtin'.resume() end, desc="Resume last finder"},
     { '<leader>gs', function() require 'telescope.builtin'.git_status({initial_mode='normal'}) end, desc="List git status"},
