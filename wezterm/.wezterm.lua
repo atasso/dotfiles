@@ -4,7 +4,7 @@ local wezterm = require("wezterm")
 -- This table will hold the configuration.
 local config = {}
 
-local powershell = { "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" }
+local powershell = { "C:\\Program Files\\PowerShell\\7\\pwsh.exe" }
 
 local act = wezterm.action
 
