@@ -1,8 +1,18 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 return {
   "neovim/nvim-lspconfig",
-  opts = {
-    ---@type lspconfig.options
-    capabilities = capabilities,
-  },
+  dependencies = { "saghen/blink.cmp" },
+
+  -- example using `opts` for defining servers
+  -- opts = {
+  --   servers = {
+  --     lua_ls = {},
+  --   },
+  -- },
+  -- -- example calling setup directly for each LSP
+  -- config = function()
+  --   local capabilities = require("blink.cmp").get_lsp_capabilities()
+  --   local lspconfig = require("lspconfig")
+  --
+  --   lspconfig["lua-ls"].setup({ capabilities = capabilities })
+  -- end,
 }
